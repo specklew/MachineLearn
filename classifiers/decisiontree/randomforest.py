@@ -74,9 +74,8 @@ class RandomForestClassifier(Classifier):
         return tree
 
     def fit(self, movies: list[dict], ratings: list[int]):
-        print("Fitting random forest...")
         trees = self._randomize_x_y(movies, ratings)
-        self.trees = list(map(self._fit_tree, tqdm(trees)))
+        self.trees = list(map(self._fit_tree, trees))
         pass
 
     def _aggregate_predictions(self, predictions: list[int]) -> int:
@@ -88,13 +87,14 @@ class RandomForestClassifier(Classifier):
         return self._aggregate_predictions(predictions)
 
     def predict(self, movies: list[Movie]) -> list[int]:
-        print("Predicting random forest...")
-        return list(map(self._predict_single, tqdm(movies)))
+        return list(map(self._predict_single, movies))
 
     def fit_predict(self, x_train: pd.DataFrame, x_test: pd.DataFrame) -> pd.DataFrame:
         possible_features = get_all_possible_features()
 
         predictions = pd.DataFrame(columns=['id', 'user', 'movie', 'rating'])
+
+        users = np.unique(x_train['user'])
 
         users_movies_train = [(
             Movie(row['id'],
@@ -124,31 +124,36 @@ class RandomForestClassifier(Classifier):
             for _, row in movies_features.iterrows()
             if row['id'] in x_test['movie'].values]
 
-        labels = x_train['rating']
+        for user in tqdm(users):
+            user_train = x_train[x_train['user'] == user]
 
-        movies_watched = [movie
-                          for movie in users_movies_train
-                          if movie.id in x_train['movie'].values]
+            labels = user_train['rating']
 
-        features = [movie.features_as_dict(possible_features) for movie in movies_watched]
+            movies_watched = [movie
+                              for movie in users_movies_train
+                              if movie.id in user_train['movie'].values]
 
-        self.fit(features, labels.to_list())
+            features = [movie.features_as_dict(possible_features) for movie in movies_watched]
 
-        movies_to_rate = [movie
-                          for movie in users_movies_test
-                          if movie.id in x_test['movie'].values]
+            self.fit(features, labels.to_list())
 
-        features = [movie.features_as_dict(possible_features) for movie in movies_to_rate]
+            user_test = x_test[x_test['user'] == user]
 
-        user_predictions = self.predict(features)
+            movies_to_rate = [movie
+                              for movie in users_movies_test
+                              if movie.id in user_test['movie'].values]
 
-        for i in range(len(user_predictions)):
-            predictions.loc[len(predictions.index)] = {
-                'id': int(x_test.iloc[i]['id']),
-                'user': int(x_test.iloc[i]['user']),
-                'movie': int(x_test.iloc[i]['movie']),
-                'rating': int(user_predictions[i])
-            }
+            features = [movie.features_as_dict(possible_features) for movie in movies_to_rate]
+
+            user_predictions = self.predict(features)
+            for i in range(len(user_predictions)):
+                predictions.loc[len(predictions.index)] = {
+                    'id': int(user_test.iloc[i]['id']),
+                    'user': int(user),
+                    'movie': int(user_test.iloc[i]['movie']),
+                    'rating': int(user_predictions[i])
+                }
+
         return predictions
 
     def get_plot(self):
