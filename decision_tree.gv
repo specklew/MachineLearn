@@ -1,0 +1,189 @@
+// Decision Tree
+digraph {
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1880> [label="Feature: Joe Pesci
+Threshold: 1
+Gain: 0.6983397190293742
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8F48EC0> [label="Value: 1
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE2C30> [label="Feature: popularity
+Threshold: 23
+Gain: 0.6850630374885196
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1880> -> <classifiers.decisiontree.Node object at 0x0000020DB8F48EC0>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1880> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE2C30>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3230> [label="Feature: popularity
+Threshold: 27
+Gain: 0.7177067282999486
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3140> [label="Feature: 263377
+Threshold: 1
+Gain: 0.4340659340659342
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE2C30> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE3230>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE2C30> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE3140>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE0F50> [label="Feature: popularity
+Threshold: 157
+Gain: 0.6730072463768115
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE28A0> [label="Feature: Crime
+Threshold: 1
+Gain: 0.4772727272727273
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3230> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE0F50>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3230> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE28A0>
+	<classifiers.decisiontree.Node object at 0x0000020DB66F6EA0> [label="Value: 1
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3CE0> [label="Feature: loss of loved one
+Threshold: 1
+Gain: 0.654196157735086
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE0F50> -> <classifiers.decisiontree.Node object at 0x0000020DB66F6EA0>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE0F50> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE3CE0>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3080> [label="Value: 3
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1DC0> [label="Feature: popularity
+Threshold: 38
+Gain: 0.6532883220805202
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3CE0> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE3080>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3CE0> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE1DC0>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1730> [label="Feature: Adventure
+Threshold: 1
+Gain: 0.5587096774193548
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE2030> [label="Feature: Omar Sharif
+Threshold: 1
+Gain: 0.5454545454545455
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1DC0> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE1730>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1DC0> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE2030>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE0E00> [label="Feature: runtime
+Threshold: 143
+Gain: 0.0
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3B00> [label="Feature: 22649
+Threshold: 1
+Gain: 0.4904347826086956
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1730> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE0E00>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1730> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE3B00>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1640> [label="Value: 3
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1970> [label="Value: 4
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE0E00> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE1640>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE0E00> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE1970>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE2780> [label="Value: 4
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE0590> [label="Value: 5
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3B00> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE2780>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3B00> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE0590>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE2150> [label="Value: 4
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE2DE0> [label="Feature: 254026
+Threshold: 1
+Gain: 0.49090909090909096
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE2030> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE2150>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE2030> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE2DE0>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1C70> [label="Value: 2
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE0620> [label="Value: 3
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE2DE0> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE1C70>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE2DE0> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE0620>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE2E70> [label="Value: 1
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1D00> [label="Feature: Romance
+Threshold: 1
+Gain: 0.375
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE28A0> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE2E70>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE28A0> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE1D00>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE2000> [label="Value: 4
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1B50> [label="Feature: 8978
+Threshold: 1
+Gain: 0.16666666666666666
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1D00> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE2000>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1D00> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE1B50>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1CD0> [label="Feature: undercover agent
+Threshold: 1
+Gain: 0.0
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE27B0> [label="Value: 2
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1B50> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE1CD0>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1B50> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE27B0>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE33B0> [label="Value: 1
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE2CC0> [label="Value: 5
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1CD0> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE33B0>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1CD0> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE2CC0>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3F80> [label="Feature: Adolphe Menjou
+Threshold: 1
+Gain: 0.0
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE09B0> [label="Feature: runtime
+Threshold: 83
+Gain: 0.3621794871794872
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3140> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE3F80>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3140> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE09B0>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE37A0> [label="Value: 1
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3710> [label="Value: 4
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3F80> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE37A0>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3F80> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE3710>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3B90> [label="Feature: Guy Pearce
+Threshold: 1
+Gain: 0.2862318840579711
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3E30> [label="Feature: Carl Miller
+Threshold: 1
+Gain: 0.0
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE09B0> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE3B90>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE09B0> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE3E30>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1580> [label="Value: 2
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE12E0> [label="Feature: hotel
+Threshold: 1
+Gain: 0.22529644268774704
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3B90> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE1580>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3B90> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE12E0>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE29F0> [label="Value: 2
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1D30> [label="Feature: Tom Murray
+Threshold: 1
+Gain: 0.1645021645021644
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE12E0> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE29F0>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE12E0> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE1D30>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE18E0> [label="Value: 3
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE14C0> [label="Feature: 38
+Threshold: 1
+Gain: 0.09047619047619056
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1D30> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE18E0>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE1D30> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE14C0>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE28D0> [label="Value: 3
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE0A70> [label="Value: 5
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE14C0> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE28D0>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE14C0> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE0A70>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE39B0> [label="Value: 2
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE0FE0> [label="Value: 3
+"]
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3E30> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE39B0>
+	<classifiers.decisiontree.Node object at 0x0000020DB8FE3E30> -> <classifiers.decisiontree.Node object at 0x0000020DB8FE0FE0>
+}
