@@ -147,12 +147,11 @@ class RandomForestClassifier(Classifier):
 
             user_predictions = self.predict(features)
             for i in range(len(user_predictions)):
-                predictions.loc[len(predictions.index)] = {
-                    'id': int(user_test.iloc[i]['id']),
-                    'user': int(user),
-                    'movie': int(user_test.iloc[i]['movie']),
-                    'rating': int(user_predictions[i])
-                }
+                predictions.loc[len(predictions.index)] = [
+                    int(user_test.iloc[i]['id']),
+                    int(user),
+                    int(user_test.iloc[i]['movie']),
+                    int(user_predictions[i])]
 
         return predictions
 

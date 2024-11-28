@@ -4,6 +4,7 @@ import numpy as np
 def train_test_split(df, test_size=0.2):
 
     mask = np.random.rand(len(df)) < 1 - test_size
+    #  TODO: Select sets randomly basing on the users
 
     train_set = df[mask]
     test_set = df[~mask]
