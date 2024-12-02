@@ -2,7 +2,6 @@ import numpy as np
 
 
 def calculate(a, b):
-
     # assuming that both movies have the same number of other features
     a_num = a.get_num_vector()
     b_num = b.get_num_vector()
@@ -33,9 +32,20 @@ def cosine(u, v):
     return dot / (len_u * len_v)
 
 
-def jaccard(u, v):
+def pearson(u, v):
+    u_mean = np.mean(u)
+    v_mean = np.mean(v)
 
-    # ref: https://www.geeksforgeeks.org/how-to-calculate-jaccard-similarity-in-python/
+    u_centered = u - u_mean
+    v_centered = v - v_mean
+
+    numerator = (u_centered * v_centered).sum()
+    denominator = np.sqrt((u_centered ** 2).sum()) * np.sqrt((v_centered ** 2).sum())
+
+    return numerator / denominator if denominator != 0 else 0
+
+
+def jaccard(u, v):
     intersection = len(u.intersection(v))
     union = len(u.union(v))
 
@@ -43,4 +53,3 @@ def jaccard(u, v):
         return 0
 
     return intersection / union
-

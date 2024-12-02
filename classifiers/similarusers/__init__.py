@@ -4,22 +4,24 @@ from tqdm import tqdm
 from operator import itemgetter
 
 from classifiers import Classifier
-from classifiers.similarity import cosine
+from classifiers.similarity import cosine, pearson, jaccard
 
 
 class SimilarUsersClassifier(Classifier):
-    def __init__(self, batch_size=1024, test_count=3, test_divide=0.2):
+    def __init__(self, batch_size=1024, test_count=3, test_divide=0.2, min_similar_users=10, cosine_weight=0.2):
         super().__init__(batch_size, test_count, test_divide)
+        self.min_similar_users = min_similar_users
+        self.cosine_weight = cosine_weight
 
-    @staticmethod
-    def _compare_users(user1_task_movie_ratings: list[tuple[int, int]],
+    def _compare_users(self,
+                       user1_task_movie_ratings: list[tuple[int, int]],
                        user2_test_movie_ratings: list[tuple[int, int]],
                        require: int | None = None):
 
         if require is not None:
             user2_movies = [movie[0] for movie in user2_test_movie_ratings]
             if require not in user2_movies:
-                return float('inf')
+                return -float('inf')
 
         def find_common_movies(user1_movies_ratings, user2_movies_ratings):
 
@@ -41,12 +43,17 @@ class SimilarUsersClassifier(Classifier):
             ratings1 = np.array([rating[1] for rating in movie_rating1_rating2])
             ratings2 = np.array([rating[2] for rating in movie_rating1_rating2])
 
-            return cosine(ratings1, ratings2)  # TODO: implement ways of changing similarity
+            p = pearson(ratings1, ratings2)
+            c = cosine(ratings1, ratings2)
+
+            s = (1 - self.cosine_weight) * p + self.cosine_weight * c
+
+            return s  # TODO: implement ways of changing similarity
 
         common_movies = find_common_movies(user1_task_movie_ratings, user2_test_movie_ratings)
 
-        if len(common_movies) <= 3:
-            return float('inf')
+        if len(common_movies) <= self.min_similar_users:
+            return -float('inf')
 
         return calculate_similarity(common_movies)
 
@@ -68,9 +75,17 @@ class SimilarUsersClassifier(Classifier):
                 similarity = self._compare_users(user1_task_movies_ratings, x[user2], considered_movie)
                 users_similarities.append((user2, similarity))
 
-            users_similarities = sorted(users_similarities, key=itemgetter(1), reverse=False)
+            users_similarities = sorted(users_similarities, key=itemgetter(1), reverse=True)
 
-            return users_similarities[:num_users]
+            top_user_similarities = users_similarities[:num_users]
+
+            for user in top_user_similarities:
+                if user[1] == -float('inf'):
+                    print("WARNING! User hasn't watched the considered movie: " + str(user[0]) +
+                          ". Considered user: " + str(considered_user) +
+                          ". Considered movie: " + str(considered_movie))
+
+            return top_user_similarities
 
         def calculate_rating_from_similar_users(similar_usr: list[tuple[int, float]]):
 
