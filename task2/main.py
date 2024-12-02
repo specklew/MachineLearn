@@ -33,7 +33,10 @@ if __name__ == '__main__':
             classifier.fit_test_predict(train)
         else:
             predictions = classifier.fit_predict(train, task)
-            predictions.to_csv('task2/submission_forest.csv', sep=';', index=False)
+            predictions.sort_values(predictions.columns[0], ascending=True)
+
+            print("Saving predictions to disk...")
+            predictions.to_csv('task2/submission_forest_1.csv', sep=';', index=False)
     else:
         classifier = DecisionTree(batch_size=len(train), test_count=3, test_divide=0.2, max_depth=8)
         if is_test:
