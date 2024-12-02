@@ -1,4 +1,4 @@
-from training.trainhelp import train_test_split, make_random_batch, calculate_accuracy
+from training.trainhelp import train_test_split, make_random_batch, calculate_results
 import pandas as pd
 
 
@@ -31,11 +31,11 @@ class Classifier:
             train, test = train_test_split(train, test_size=self.test_divide)
 
             predictions = self.fit_predict(train, test)
-            accuracy = calculate_accuracy(predictions, test)
-            print("ACC: ", accuracy)
+            result = calculate_results(predictions, test)
+            print(result)
             print("-" * len(test_name) + "\n")
 
-            sum_accuracy += accuracy
+            sum_accuracy += result.accuracy
 
         avg_accuracy = sum_accuracy / self.test_count
 

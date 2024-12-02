@@ -1,4 +1,4 @@
-import classifiers.neighbours.similarity
+import similarity
 import pandas as pd
 
 from classifiers import Classifier
