@@ -11,6 +11,7 @@ class Classifier:
     def fit_test_predict(self, x_train: pd.DataFrame) -> float:
 
         sum_accuracy = 0
+        sum_near_miss = 0
 
         print("\n")
         print("=====================")
@@ -36,14 +37,17 @@ class Classifier:
             print("-" * len(test_name) + "\n")
 
             sum_accuracy += result.accuracy
+            sum_near_miss += result.nearmiss
 
         avg_accuracy = sum_accuracy / self.test_count
+        avg_near_miss = sum_near_miss / self.test_count
 
         print("\n")
         print("=====================")
         print("    Test finished    ")
         print("---------------------")
-        print("AVG ACCURACY:", round(avg_accuracy, 4))
+        print("AVG ACCURACY:", round(avg_accuracy, 5))
+        print("AVG NEARMISS:", round(avg_near_miss, 5))
         print("---------------------")
 
         return avg_accuracy
